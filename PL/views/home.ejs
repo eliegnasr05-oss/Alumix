@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alumix | Premium Aluminum Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/CSS/home_page.css">
+</head>
+<body>
+
+  <%- include("components/nav_bar") %>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-bg">
+      <picture>
+        <source media="(max-width: 767px)"  srcset="/images/Image_844px.jpg">
+        <source media="(max-width: 1365px)" srcset="/images/Image_1024px.jpg">
+        <source media="(max-width: 1919px)" srcset="/images/Image_1600px.jpg">
+        <img class="hero-bg-img" src="/images/Image_1920px.jpg" alt="Alumix hero background">
+      </picture>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 data-en="Precision Aluminum Manufacturing"
+          data-ar="تصنيع الألمنيوم بدقة عالية">Precision Aluminum Manufacturing</h1>
+      <p class="subtitle"
+         data-en="Lightweight, Durable, & Stylish Aluminum Elevates Décor & Façades."
+         data-ar="ألمنيوم خفيف الوزن ومتين وأنيق يرتقي بمستوى الديكور والواجهات.">
+         Lightweight, Durable, & Stylish Aluminum Elevates Décor & Façades.
+      </p>
+      <div class="cta-group">
+        <a href="/items/products" class="btn btn-primary">
+          <span data-en="Explore Products" data-ar="اكتشف المنتجات">Explore Products</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="/users/about" class="btn btn-outline">
+          <span data-en="Learn About Us" data-ar="تعرف علينا">Learn About Us</span>
+        </a>
+      </div>
+      <div class="hero-actions">
+        <a href="https://wa.me/96170129740?text=Hello%20Alumix,%20I%20want%20to%20learn%20more"
+           target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+          <span data-en="Connect on WhatsApp" data-ar="تواصل عبر واتساب">Connect on WhatsApp</span>
+        </a>
+        <a href="https://maps.app.goo.gl/ms29mYzLejJhWF6dA?g_st=iw"
+           target="_blank" rel="noopener noreferrer" class="btn btn-location">
+          <i class="fas fa-location-dot"></i>
+          <span data-en="Our Location" data-ar="موقعنا">Our Location</span>
+        </a>
+      </div>
+
+      <!-- Language Toggle -->
+      <button class="lang-toggle" id="langToggle" aria-label="Switch between English and Arabic">
+        <i class="fas fa-globe" aria-hidden="true"></i>
+        <span class="lang-ar" lang="ar">العربية</span>
+        <span class="lang-separator" aria-hidden="true">/</span>
+        <span class="lang-en" lang="en">ENGLISH</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       STATS
+  ════════════════════════════════════════ -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item scroll-animate">
+        <h4>200+</h4>
+        <p data-en="Custom Profiles" data-ar="مقاطع مخصصة">Custom Profiles</p>
+      </div>
+      <div class="stat-item scroll-animate">
+        <h4>5000+</h4>
+        <p data-en="Projects Completed" data-ar="مشروع منجز">Projects Completed</p>
+      </div>
+      <div class="stat-item scroll-animate">
+        <h4>98%</h4>
+        <p data-en="Client Satisfaction" data-ar="رضا العملاء">Client Satisfaction</p>
+      </div>
+      <div class="stat-item scroll-animate">
+        <h4>24/7</h4>
+        <p data-en="Production Capability" data-ar="قدرة إنتاجية متواصلة">Production Capability</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       WHAT WE OFFER
+  ════════════════════════════════════════ -->
+  <section class="offers-section">
+    <div class="offers-bg-lines" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="offers-container">
+
+      <div class="offers-header scroll-animate">
+        <span class="offers-eyebrow" data-en="What We Offer" data-ar="ماذا نقدم">What We Offer</span>
+        <h2 class="offers-title">
+          <span data-en="Precision. " data-ar="الدقة. ">Precision. </span><span data-en="Strength." data-ar="القوة.">Strength.</span><span data-en=" Delivered." data-ar=" بأعلى جودة.">Delivered.</span>
+        </h2>
+        <p class="offers-desc"
+           data-en="From standard extrusions to fully custom profiles every solution engineered to perform."
+           data-ar="من المقاطع القياسية إلى المقاطع المخصصة بالكامل، كل حل مصمم هندسياً للأداء الأمثل.">
+           From standard extrusions to fully custom profiles every solution engineered to perform.
+        </p>
+      </div>
+
+      <div class="offers-grid">
+
+        <div class="offer-card scroll-animate" data-delay="0">
+          <div class="offer-card-top">
+            <div class="offer-icon-wrap"><i class="fas fa-layer-group"></i></div>
+            <span class="offer-number">01</span>
+          </div>
+          <h3 data-en="Standard Profiles" data-ar="المقاطع القياسية">Standard Profiles</h3>
+          <p data-en="A full range of ready-stock aluminum profiles angles, channels, tubes, flat bars available for immediate dispatch."
+             data-ar="مجموعة كاملة من مقاطع الألمنيوم الجاهزة زوايا، قنوات، أنابيب، قضبان مسطحة متوفرة للشحن الفوري.">
+             A full range of ready-stock aluminum profiles angles, channels, tubes, flat bars available for immediate dispatch.
+          </p>
+          <ul class="offer-specs">
+            <li><i class="fas fa-check"></i> <span data-en="T5 & T6 temper options" data-ar="خيارات معالجة T5 و T6">T5 & T6 temper options</span></li>
+            <li><i class="fas fa-check"></i> <span data-en="Mill finish & anodized" data-ar="تشطيب خام ومؤكسد">Mill finish & anodized</span></li>
+            <li><i class="fas fa-check"></i> <span data-en="Same-day availability" data-ar="توفر في نفس اليوم">Same-day availability</span></li>
+          </ul>
+          <div class="offer-card-line"></div>
+        </div>
+
+        <div class="offer-card scroll-animate featured" data-delay="1">
+          <div class="offer-card-top">
+            <div class="offer-icon-wrap"><i class="fas fa-drafting-compass"></i></div>
+            <span class="offer-number">02</span>
+          </div>
+          <h3 data-en="Custom Extrusions" data-ar="مقاطع مخصصة">Custom Extrusions</h3>
+          <p data-en="Your design, our precision. We engineer and produce bespoke profiles to exact specifications for any application."
+             data-ar="تصميمكم، دقتنا. نقوم بتصميم وتصنيع مقاطع مخصصة وفق المواصفات الدقيقة لأي تطبيق.">
+             Your design, our precision. We engineer and produce bespoke profiles to exact specifications for any application.
+          </p>
+          <ul class="offer-specs">
+            <li><i class="fas fa-check"></i> <span data-en="Die design & tooling" data-ar="تصميم القوالب والعدد">Die design & tooling</span></li>
+            <li><i class="fas fa-check"></i> <span data-en="Tolerances to ±0.1mm" data-ar="دقة تصنيع حتى ±0.1 مم">Tolerances to ±0.1mm</span></li>
+            <li><i class="fas fa-check"></i> <span data-en="Low minimum quantities" data-ar="حد أدنى منخفض للكميات">Low minimum quantities</span></li>
+          </ul>
+          <div class="offer-card-line"></div>
+        </div>
+
+        <div class="offer-card scroll-animate" data-delay="2">
+          <div class="offer-card-top">
+            <div class="offer-icon-wrap"><i class="fas fa-paint-roller"></i></div>
+            <span class="offer-number">03</span>
+          </div>
+          <h3 data-en="Surface Finishing" data-ar="تشطيب الأسطح">Surface Finishing</h3>
+          <p data-en="Complete in-house finishing services anodizing, powder coating, and mill finish for durability and aesthetics."
+             data-ar="خدمات تشطيب داخلية متكاملة أكسدة، طلاء بودرة، وتشطيب خام لضمان المتانة والجمال.">
+             Complete in-house finishing services anodizing, powder coating, and mill finish for durability and aesthetics.
+          </p>
+          <ul class="offer-specs">
+            <li><i class="fas fa-check"></i> <span data-en="Anodizing (clear & color)" data-ar="أكسدة (شفافة وملونة)">Anodizing (clear & color)</span></li>
+            <li><i class="fas fa-check"></i> <span data-en="Powder coating" data-ar="طلاء بودرة">Powder coating</span></li>
+            <li><i class="fas fa-check"></i> <span data-en="Corrosion-resistant finish" data-ar="تشطيب مقاوم للصدأ">Corrosion-resistant finish</span></li>
+          </ul>
+          <div class="offer-card-line"></div>
+        </div>
+
+        <div class="offer-card scroll-animate" data-delay="3">
+          <div class="offer-card-top">
+            <div class="offer-icon-wrap"><i class="fas fa-truck-fast"></i></div>
+            <span class="offer-number">04</span>
+          </div>
+          <h3 data-en="Regional Export" data-ar="التصدير الإقليمي">Regional Export</h3>
+          <p data-en="Reliable supply chains to Arab and international market on-time, every time, with full documentation."
+             data-ar="سلاسل توريد موثوقة إلى الأسواق العربية والعالمية في الوقت المحدد دائماً، مع توثيق كامل.">
+             Reliable supply chains to Arab and international market on-time, every time, with full documentation.
+          </p>
+          <ul class="offer-specs">
+            <li><i class="fas fa-check"></i> <span data-en="GCC & Arab markets" data-ar="أسواق الخليج والدول العربية">GCC & Arab markets</span></li>
+            <li><i class="fas fa-check"></i> <span data-en="Export documentation" data-ar="مستندات التصدير">Export documentation</span></li>
+            <li><i class="fas fa-check"></i> <span data-en="Traceable batches" data-ar="دفعات قابلة للتتبع">Traceable batches</span></li>
+          </ul>
+          <div class="offer-card-line"></div>
+        </div>
+
+      </div>
+
+      <div class="offers-cta scroll-animate">
+        <a href="/items/products" class="offers-cta-btn">
+          <span data-en="Explore All Products" data-ar="اكتشف جميع المنتجات">Explore All Products</span> <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="https://wa.me/96170129740?text=Hello%20Alumix,%20I%20want%20to%20learn%20more%20about%20your%20offerings"
+           target="_blank" rel="noopener noreferrer" class="offers-cta-link">
+          <i class="fab fa-whatsapp"></i> <span data-en="Talk to our team" data-ar="تحدث مع فريقنا">Talk to our team</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       GALLERY CAROUSEL
+  ════════════════════════════════════════ -->
+  <section class="carousel-section">
+    <h2 class="section-title scroll-animate" data-en="Our Work Gallery" data-ar="معرض أعمالنا">Our Work Gallery</h2>
+    <div class="carousel-wrap scroll-animate">
+
+      <div id="alumixCarousel"
+           class="carousel slide carousel-fade"
+           data-bs-ride="carousel"
+           data-bs-interval="3500"
+           data-bs-wrap="true">
+
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#alumixCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#alumixCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#alumixCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#alumixCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/images/Alumix2.jpg" class="d-block w-100 carousel-img" alt="Alumix Logo">
+          </div>
+          <div class="carousel-item">
+            <img src="/images/Alumix_4.jpg" class="d-block w-100 carousel-img" alt="Alumix Product 1">
+          </div>
+          <div class="carousel-item">
+            <img src="/images/alumix3.jpg" class="d-block w-100 carousel-img" alt="Alumix Product 2">
+          </div>
+          <div class="carousel-item">
+            <img src="/images/Alumix_Post2.jpeg" class="d-block w-100 carousel-img" alt="Alumix Product 3">
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#alumixCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#alumixCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FEATURES
+  ════════════════════════════════════════ -->
+  <section class="features-section">
+    <h2 class="section-title scroll-animate" data-en="Why Industry Leaders Choose Us" data-ar="لماذا يختارنا رواد الصناعة">Why Industry Leaders Choose Us</h2>
+    <div class="features-grid">
+      <div class="feature-card scroll-animate">
+        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3 data-en="Premium Quality" data-ar="جودة فائقة">Premium Quality</h3>
+        <p data-en="Government-certified with a Quality Excellence Diploma."
+           data-ar="معتمدون حكومياً بشهادة التميز في الجودة.">Government-certified with a Quality Excellence Diploma.</p>
+      </div>
+      <div class="feature-card scroll-animate">
+        <div class="feature-icon"><i class="fas fa-industry"></i></div>
+        <h3 data-en="Advanced Facility" data-ar="منشأة متطورة">Advanced Facility</h3>
+        <p data-en="State of the art machinery and technology-driven production systems"
+           data-ar="آلات حديثة وأنظمة إنتاج مدعومة بأحدث التقنيات">State of the art machinery and technology-driven production systems</p>
+      </div>
+      <div class="feature-card scroll-animate">
+        <div class="feature-icon"><i class="fas fa-clock"></i></div>
+        <h3 data-en="Timely Delivery" data-ar="تسليم في الوقت المحدد">Timely Delivery</h3>
+        <p data-en="Streamlined logistics and commitment to meeting every deadline"
+           data-ar="لوجستيات منظمة والتزام تام بجميع المواعيد">Streamlined logistics and commitment to meeting every deadline</p>
+      </div>
+      <div class="feature-card scroll-animate">
+        <div class="feature-icon"><i class="fas fa-users"></i></div>
+        <h3 data-en="Client-Centric" data-ar="التركيز على العميل">Client-Centric</h3>
+        <p data-en="Dedicated support team ensuring your complete satisfaction"
+           data-ar="فريق دعم مخصص يضمن رضاكم التام">Dedicated support team ensuring your complete satisfaction</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       VIDEO
+  ════════════════════════════════════════ -->
+  <section class="video-section">
+    <h2 class="section-title scroll-animate" data-en="Behind the Scenes" data-ar="خلف الكواليس">Behind the Scenes</h2>
+    <div class="video-wrapper scroll-animate">
+      <video id="video" loop playsinline poster="/images/Alumix1.jpg" style="cursor:pointer;">
+        <source src="/images/Video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p style="text-align:center;color:#b0bec5;font-size:14px;margin-top:8px;"
+         data-en="Click the video to play" data-ar="انقر على الفيديو للتشغيل">Click the video to play</p>
+    </div>
+  </section>
+
+  <%- include("components/footer") %>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/96170129740?text=Hello%20Alumix,%20I%20want%20to%20learn%20more"
+     target="_blank" rel="noopener noreferrer"
+     class="fab-whatsapp" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="fab-tooltip" data-en="Chat with us" data-ar="تحدث معنا">Chat with us</span>
+  </a>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/home_page.js"></script>
+
+</body>
+</html>

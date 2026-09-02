@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alumix | Add Product</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="/CSS/add_item.css">
+</head>
+
+<body>
+
+<main class="page">
+  <div class="card">
+
+    <div class="header">
+      <div class="icon">
+        <i class="fas fa-box"></i>
+      </div>
+      <div>
+        <h1>Add Product</h1>
+        <p class="sub">Create a new Alumix product.</p>
+      </div>
+    </div>
+
+    <% if (typeof error !== "undefined" && error) { %>
+      <div class="error">
+        <i class="fas fa-exclamation-circle"></i>
+        <span><%= error %></span>
+      </div>
+    <% } %>
+
+    <form action="/items/add" method="POST" enctype="multipart/form-data" class="form">
+
+      <div class="form-group">
+        <label for="title">Product Title (English)</label>
+        <input type="text" id="title" name="title" placeholder="Enter product title" required>
+      </div>
+
+      <div class="form-group">
+        <label for="title_ar">Product Title (Arabic)</label>
+        <input
+          type="text"
+          id="title_ar"
+          name="title_ar"
+          placeholder="أدخل عنوان المنتج"
+          dir="rtl"
+          class="input-arabic"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="label">Weight</label>
+        <input type="text" id="label" name="label" placeholder="e.g. 2.5 KG/M">
+      </div>
+
+      <div class="form-group">
+        <label for="photo">Product Photo</label>
+        <input type="file" id="photo" name="photo" accept="image/*" required>
+        <div class="hint">
+          <i class="fas fa-image"></i>
+          <span>Upload JPG/PNG (recommended: high quality).</span>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        <i class="fas fa-plus"></i>
+        Add Product
+      </button>
+
+      <a href="/adminAlumix" class="btn btn-outline">
+        <i class="fas fa-arrow-left"></i>
+        Back to Dashboard
+      </a>
+
+    </form>
+
+  </div>
+</main>
+
+<script src="/js/add_item.js"></script>
+</body>
+</html>

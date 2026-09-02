@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alumix | Add Employee</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
+  <link rel="stylesheet" href="/CSS/add_user.css">
+</head>
+
+<body>
+  <main class="page">
+    <div class="card">
+      <div class="header">
+        <div class="icon" aria-hidden="true">
+          <i class="fas fa-user-plus"></i>
+        </div>
+
+        <div>
+          <h1>Add Employee</h1>
+          <p class="sub">Add a new team member to Alumix.</p>
+        </div>
+      </div>
+
+      <% if (typeof error !== "undefined" && error) { %>
+        <div class="error" role="alert">
+          <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+          <span><%= error %></span>
+        </div>
+      <% } %>
+
+      <form action="/users/add" method="POST" enctype="multipart/form-data" class="form">
+        <div class="grid">
+          <div class="form-group">
+            <label for="first_name">First Name (English)</label>
+            <input type="text" id="first_name" name="first_name" placeholder="Enter first name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="last_name">Last Name (English)</label>
+            <input type="text" id="last_name" name="last_name" placeholder="Enter last name" required>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="form-group">
+            <label for="first_name_ar">First Name (Arabic)</label>
+            <input
+              type="text"
+              id="first_name_ar"
+              name="first_name_ar"
+              class="arabic-input"
+              dir="rtl"
+              lang="ar"
+              placeholder="أدخل الاسم الأول"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="last_name_ar">Last Name (Arabic)</label>
+            <input
+              type="text"
+              id="last_name_ar"
+              name="last_name_ar"
+              class="arabic-input"
+              dir="rtl"
+              lang="ar"
+              placeholder="أدخل اسم العائلة"
+            >
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="form-group">
+            <label for="position">Position (English)</label>
+            <input type="text" id="position" name="position" placeholder="Enter position" required>
+          </div>
+
+          <div class="form-group">
+            <label for="position_ar">Position (Arabic)</label>
+            <input
+              type="text"
+              id="position_ar"
+              name="position_ar"
+              class="arabic-input"
+              dir="rtl"
+              lang="ar"
+              placeholder="أدخل المنصب"
+            >
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter phone number">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter email" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="linkedIn">LinkedIn</label>
+          <input type="text" id="linkedIn" name="linkedIn" placeholder="linkedin.com/in/username or full URL">
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="Management">Management</option>
+            <option value="Operations" selected>Operations</option>
+            <option value="Sales/Support">Sales/Support</option>
+          </select>
+        </div>
+
+        <div class="grid">
+          <div class="form-group">
+            <label for="photo">Profile Photo</label>
+            <input type="file" id="photo" name="photo" accept="image/*">
+            <div class="hint"><i class="fas fa-image" aria-hidden="true"></i> JPG/PNG/GIF only</div>
+          </div>
+
+          <div class="form-group">
+            <label for="resume">Resume (PDF)</label>
+            <input type="file" id="resume" name="resume" accept="application/pdf">
+            <div class="hint"><i class="fas fa-file-pdf" aria-hidden="true"></i> PDF only</div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-plus" aria-hidden="true"></i>
+          Add Employee
+        </button>
+
+        <a href="/adminAlumix" class="btn btn-outline">
+          <i class="fas fa-arrow-left" aria-hidden="true"></i>
+          Back to Dashboard
+        </a>
+      </form>
+    </div>
+  </main>
+
+  <script src="/js/add_user.js"></script>
+</body>
+</html>

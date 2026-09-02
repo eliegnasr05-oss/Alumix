@@ -1,0 +1,546 @@
+<!-- Add inside the <head> -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+>
+
+<style>
+  /* ================= FOOTER ================= */
+
+  footer {
+    padding: 55px 25px 22px;
+    overflow: hidden;
+    color: #b0bec5;
+    background: #071a20;
+    border-top: 3px solid #4dd0e1;
+    font-family: "Inter", Arial, sans-serif;
+  }
+
+  .footer-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ================= FOOTER TOP ================= */
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.2fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .footer-col h4 {
+    position: relative;
+    margin: 0 0 25px;
+    padding-bottom: 12px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-col h4::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 45px;
+    height: 2px;
+    background: #4dd0e1;
+  }
+
+  /* ================= LARGE FOOTER LOGO ================= */
+
+  .footer-logo {
+    position: relative;
+    width: 340px;
+    max-width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 0 18px;
+    overflow: visible;
+  }
+
+  .footer-logo img {
+    display: block;
+    width: 340px !important;
+    height: 150px !important;
+    max-width: none !important;
+    object-fit: contain;
+    object-position: left center;
+    transform: scale(2) !important;
+    transform-origin: left center !important;
+    transition: none !important;
+  }
+
+  /* Keep exactly the same size on hover */
+
+  .footer-logo img:hover {
+    width: 340px !important;
+    height: 150px !important;
+    transform: scale(2) !important;
+    transform-origin: left center !important;
+  }
+
+  .footer-tagline {
+    margin: 0 0 12px;
+    color: #4dd0e1;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .footer-description {
+    max-width: 430px;
+    margin: 0;
+    color: #b0bec5;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* ================= QUICK LINKS ================= */
+
+  .footer-links ul,
+  .contact-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-links li {
+    margin-bottom: 12px;
+  }
+
+  .footer-links a {
+    position: relative;
+    padding-left: 17px;
+    color: #b0bec5;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+  }
+
+  .footer-links a::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: #4dd0e1;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .footer-links a:hover {
+    padding-left: 22px;
+    color: #4dd0e1;
+  }
+
+  /* ================= CONTACT ================= */
+
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    color: #b0bec5;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .contact-list i {
+    width: 18px;
+    margin-top: 4px;
+    color: #4dd0e1;
+    font-size: 16px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .contact-list a {
+    color: #b0bec5;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .contact-list a:hover {
+    color: #4dd0e1;
+  }
+
+  /* ================= DIVIDER ================= */
+
+  .footer-divider {
+    width: 100%;
+    height: 1px;
+    margin: 45px 0 28px;
+    background: rgba(77, 208, 225, 0.22);
+  }
+
+  /* ================= FOOTER BOTTOM ================= */
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+  }
+
+  /* ================= SOCIAL MEDIA ================= */
+
+  .footer-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+  }
+
+  .footer-social a {
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    color: #4dd0e1;
+    background: rgba(77, 208, 225, 0.08);
+    border: 1px solid rgba(77, 208, 225, 0.35);
+    border-radius: 50%;
+    font-size: 17px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .footer-social a:hover {
+    color: #071a20;
+    background: #4dd0e1;
+    border-color: #4dd0e1;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(77, 208, 225, 0.25);
+  }
+
+  /* ================= DEVELOPER LINK ================= */
+
+  .footer-dev {
+    color: #cccccc;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .footer-dev p {
+    margin: 0;
+  }
+
+  .footer-dev .dev-link {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-dev .dev-link:hover {
+    color: #25d366;
+  }
+
+  /* ================= COPYRIGHT ================= */
+
+  .footer-copyright {
+    margin: 0;
+    color: #9aabb1;
+    font-size: 13px;
+  }
+
+  .footer-copyright strong {
+    color: #4dd0e1;
+  }
+
+  /* ================= LEGAL LINKS ================= */
+
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  .footer-legal a {
+    color: #9aabb1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-legal a:hover {
+    color: #4dd0e1;
+  }
+
+  .footer-legal .separator {
+    color: #4dd0e1;
+  }
+
+  /* ================= TABLET ================= */
+
+  @media (max-width: 992px) {
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+    }
+
+    .footer-about {
+      grid-column: 1 / -1;
+    }
+
+    .footer-logo {
+      width: 310px;
+      height: 135px;
+    }
+
+    .footer-logo img,
+    .footer-logo img:hover {
+      width: 310px !important;
+      height: 135px !important;
+      transform: scale(1.9) !important;
+    }
+  }
+
+  /* ================= MOBILE ================= */
+
+  @media (max-width: 768px) {
+    footer {
+      padding: 42px 20px 20px;
+    }
+
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 38px;
+    }
+
+    .footer-about {
+      grid-column: auto;
+    }
+
+    .footer-logo {
+      width: 280px;
+      height: 125px;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo img,
+    .footer-logo img:hover {
+      width: 280px !important;
+      height: 125px !important;
+      transform: scale(1.9) !important;
+    }
+
+    .footer-divider {
+      margin: 35px 0 25px;
+    }
+  }
+
+  /* ================= SMALL MOBILE ================= */
+
+  @media (max-width: 480px) {
+    footer {
+      padding: 35px 18px 18px;
+    }
+
+    .footer-logo {
+      width: 240px;
+      height: 110px;
+      margin-bottom: 12px;
+    }
+
+    .footer-logo img,
+    .footer-logo img:hover {
+      width: 240px !important;
+      height: 110px !important;
+      transform: scale(1.8) !important;
+    }
+
+    .footer-tagline {
+      font-size: 16px;
+    }
+
+    .footer-description {
+      font-size: 13px;
+    }
+
+    .footer-social a {
+      width: 38px;
+      height: 38px;
+      font-size: 15px;
+    }
+
+    .footer-dev,
+    .footer-copyright,
+    .footer-legal {
+      font-size: 12px;
+    }
+  }
+</style>
+
+<!-- ================= PROFESSIONAL FOOTER ================= -->
+
+<footer>
+  <div class="footer-container">
+
+    <div class="footer-top">
+
+      <!-- Company information -->
+
+      <div class="footer-col footer-about">
+        <div class="footer-logo">
+          <img src="/images/logo.png" alt="Alumix Logo">
+        </div>
+
+        <p class="footer-tagline">
+          Crafting Excellence in Aluminum Solutions
+        </p>
+
+        <p class="footer-description">
+          At Alumix, we create high-quality aluminum structures tailored to
+          elevate homes and businesses with durability, style, and precision.
+        </p>
+      </div>
+
+      <!-- Quick links -->
+
+      <div class="footer-col footer-links">
+        <h4>Quick Links</h4>
+
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/users/about">About Us</a></li>
+          <li><a href="/users/team">Team</a></li>
+          <li><a href="/items/products">Products</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact information -->
+
+      <div class="footer-col footer-contact">
+        <h4>Get In Touch</h4>
+
+        <ul class="contact-list">
+          <li>
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+
+            <a
+              href="https://maps.app.goo.gl/ms29mYzLejJhWF6dA?g_st=iw"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Lebanon, Nabatieh<br>
+              South Lebanon
+            </a>
+          </li>
+
+          <li>
+            <i class="fas fa-phone" aria-hidden="true"></i>
+            <a href="tel:+96170129740">+961 70 129 740</a>
+          </li>
+
+          <li>
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:info@alumix.lb">info@alumix.lb</a>
+          </li>
+
+          <li>
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span>Mon – Fri: 8:00 AM – 4:00 PM</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-bottom">
+
+      <!-- Social media -->
+
+      <div class="footer-social">
+        <a
+          href="https://wa.me/96170129740?text=Hello%20Alumix%2C%20I%20want%20to%20learn%20more"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contact Alumix on WhatsApp"
+        >
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+
+        <a
+          href="https://www.instagram.com/alumix.lb"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Alumix on Instagram"
+        >
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
+
+        <a
+          href="https://www.facebook.com/share/1G4ios945F/?mibextid=wwXIfr"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Alumix on Facebook"
+        >
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+
+        <a
+          href="mailto:info@alumix.lb"
+          aria-label="Email Alumix"
+        >
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <!-- Developer promotion -->
+
+      <div class="footer-dev">
+        <p>
+          Want to develop your own website?
+
+          <a
+            href="mailto:elie.g.nasr05@gmail.com?subject=Website%20Development%20Inquiry"
+            class="dev-link"
+          >
+            Click here to get started
+          </a>
+        </p>
+      </div>
+
+      <!-- Copyright -->
+
+      <p class="footer-copyright">
+        &copy;
+        <span id="current-year">2026</span>
+        <strong>Alumix</strong>. All Rights Reserved.
+      </p>
+
+      <!-- Legal links -->
+
+      <div class="footer-legal">
+        <a href="/privacy">Privacy Policy</a>
+        <span class="separator" aria-hidden="true">•</span>
+        <a href="/terms">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const currentYear = document.getElementById("current-year");
+
+  if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+  }
+</script>

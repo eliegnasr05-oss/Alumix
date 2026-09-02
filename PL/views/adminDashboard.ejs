@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alumix | Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="/CSS/admin_dashboard.css">
+  <link rel="stylesheet" href="/CSS/admin_carousel.css">
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar" id="header">
+    <div class="brand">
+      <img src="/images/logo.png" alt="Alumix Logo" class="brand-logo">
+    </div>
+
+    <nav class="tabs" aria-label="Dashboard sections">
+      <button id="employeesBtn" class="tab active" type="button" aria-controls="employeesView" aria-selected="true">
+        <i class="fas fa-users"></i> Employees
+      </button>
+
+      <button id="productsBtn" class="tab" type="button" aria-controls="productsView" aria-selected="false">
+        <i class="fas fa-box"></i> Products
+      </button>
+
+      <button id="carouselBtn" class="tab" type="button" aria-controls="carouselView" aria-selected="false">
+        <i class="fas fa-images"></i> Carousel
+      </button>
+    </nav>
+
+    <button class="logout" type="button" onclick="location.href='/logout'">
+      <i class="fas fa-arrow-right-from-bracket"></i> Logout
+    </button>
+  </header>
+
+  <main class="container">
+
+    <!-- ================= Employees ================= -->
+    <section id="employeesView" class="panel" aria-labelledby="employeesHeading">
+      <div class="panel-head">
+        <div>
+          <h1 id="employeesHeading" class="title">Employees</h1>
+          <p class="subtitle">Manage your team members, resumes, and categories.</p>
+        </div>
+        <button class="add-btn" type="button" onclick="location.href='/users/add'">
+          <i class="fas fa-user-plus"></i> Add Employee
+        </button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Photo</th>
+              <th>Name (EN)</th>
+              <th>Name (AR)</th>
+              <th>Position (EN)</th>
+              <th>Position (AR)</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>LinkedIn</th>
+              <th>Category</th>
+              <th>Resume</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% (employees || []).forEach(user => { %>
+              <tr>
+                <td><%= user.id %></td>
+                <td>
+                  <img class="avatar" src="<%= user.photo ? user.photo : '/images/default-user.png' %>" alt="Employee photo">
+                </td>
+                <td class="strong"><%= user.first_name %> <%= user.last_name %></td>
+                <td class="strong arabic-cell" dir="rtl">
+                  <% if (user.first_name_ar || user.last_name_ar) { %>
+                    <%= user.first_name_ar || '' %> <%= user.last_name_ar || '' %>
+                  <% } else { %>
+                    <span class="muted">Not entered</span>
+                  <% } %>
+                </td>
+                <td><%= user.position || 'N/A' %></td>
+                <td class="arabic-cell" dir="rtl">
+                  <%= user.position_ar || 'لم يُدخل' %>
+                </td>
+                <td><%= user.phone %></td>
+                <td class="mono"><%= user.email %></td>
+                <td class="truncate">
+                  <% if (user.linkedIn) { %>
+                    <a class="link" href="<%= user.linkedIn %>" target="_blank" rel="noopener noreferrer">
+                      <i class="fab fa-linkedin"></i> Profile
+                    </a>
+                  <% } else { %>
+                    <span class="muted">N/A</span>
+                  <% } %>
+                </td>
+                <td><span class="pill"><%= user.category %></span></td>
+                <td>
+                  <% if (user.resume_path) { %>
+                    <a href="<%= user.resume_path %>" target="_blank" class="icon-btn" data-tooltip="Open Resume">
+                      <i class="fas fa-file-pdf"></i>
+                    </a>
+                  <% } else { %>
+                    <span class="muted">N/A</span>
+                  <% } %>
+                </td>
+                <td>
+                  <div class="actions">
+                    <button class="icon-btn" type="button" onclick="location.href='/users/edit/<%= user.id %>'" data-tooltip="Edit">
+                      <i class="fas fa-pen"></i>
+                    </button>
+                    <button class="icon-btn danger" type="button" onclick="location.href='/users/delete/<%= user.id %>'" data-tooltip="Delete">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= Products ================= -->
+    <section id="productsView" class="panel" hidden aria-labelledby="productsHeading">
+      <div class="panel-head">
+        <div>
+          <h1 id="productsHeading" class="title">Products</h1>
+          <p class="subtitle">Manage products.</p>
+        </div>
+        <button class="add-btn" type="button" onclick="location.href='/items/add'">
+          <i class="fas fa-plus"></i> Add Product
+        </button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title (EN)</th>
+              <th>Title (AR)</th>
+              <th>Label</th>
+              <th>Photo</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% (items || []).forEach(item => { %>
+              <tr>
+                <td><%= item.id %></td>
+                <td class="strong"><%= item.title || 'N/A' %></td>
+                <td class="strong arabic-cell" dir="rtl">
+                  <% if (item.title_ar) { %>
+                    <%= item.title_ar %>
+                  <% } else { %>
+                    <span class="muted">لم يُدخل</span>
+                  <% } %>
+                </td>
+                <td>
+                  <% if (item.label) { %>
+                    <span class="pill"><%= item.label %></span>
+                  <% } else { %>
+                    <span class="muted">N/A</span>
+                  <% } %>
+                </td>
+                <td>
+                  <img class="avatar item-thumb" src="<%= item.photo ? item.photo : '/images/default-item.png' %>" alt="Product photo">
+                </td>
+                <td>
+                  <div class="actions">
+                    <button class="icon-btn" type="button" onclick="location.href='/items/edit/<%= item.id %>'" data-tooltip="Edit">
+                      <i class="fas fa-pen"></i>
+                    </button>
+                    <button class="icon-btn danger" type="button" onclick="location.href='/items/delete/<%= item.id %>'" data-tooltip="Delete">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= Carousel ================= -->
+    <section id="carouselView" class="panel" hidden aria-labelledby="carouselTitle">
+
+      <!-- ── Header ── -->
+      <div class="panel-head">
+        <div>
+          <h1 id="carouselTitle" class="title">Crafted by Hand</h1>
+          <p class="subtitle">Showcase the artistry behind every piece — upload photos that tell the story of your handwork.</p>
+        </div>
+      </div>
+
+      <!-- ── Upload new photo ── -->
+      <div class="carousel-upload">
+        <form action="/users/carousel/add" method="POST" enctype="multipart/form-data" class="upload-form">
+
+          <label class="file-label" for="carouselPhoto">
+            <i class="fas fa-image"></i>
+            <span class="file-label-text" id="carouselFileName">Choose a photo…</span>
+          </label>
+          <input
+            id="carouselPhoto"
+            type="file"
+            name="carouselPhoto"
+            accept="image/*"
+            class="file-input-hidden"
+            required
+          >
+
+          <button type="submit" class="add-btn">
+            <i class="fas fa-plus"></i> Add
+          </button>
+
+        </form>
+      </div>
+
+      <!-- ── Current photos grid ── -->
+      <div class="carousel-list">
+        <h2 class="carousel-list-title">Current Photos</h2>
+
+        <% const photos = (typeof carouselPhotos !== "undefined") ? carouselPhotos : []; %>
+
+        <% if (photos.length > 0) { %>
+          <ul class="carousel-grid" role="list">
+            <% photos.forEach(p => { %>
+              <li class="carousel-card">
+
+                <!-- Portrait image -->
+                <figure class="carousel-figure">
+                  <img src="<%= p.photo_path %>" alt="Carousel image">
+                </figure>
+
+                <!-- Actions -->
+                <div class="carousel-actions">
+
+                  <!-- Replace form -->
+                  <form
+                    action="/users/carousel/edit/<%= p.id %>"
+                    method="POST"
+                    enctype="multipart/form-data"
+                    class="replace-form"
+                    id="replaceForm-<%= p.id %>"
+                  >
+                    <label class="file-label file-label-sm" for="replace-<%= p.id %>">
+                      <i class="fas fa-image"></i>
+                      <span class="file-label-text" id="fileName-<%= p.id %>">Choose…</span>
+                    </label>
+                    <input
+                      id="replace-<%= p.id %>"
+                      type="file"
+                      name="carouselPhoto"
+                      accept="image/*"
+                      class="file-input-hidden"
+                      data-label="fileName-<%= p.id %>"
+                      required
+                    >
+                    <!-- Pen edit button -->
+                    <button type="submit" class="icon-btn" data-tooltip="Replace photo">
+                      <i class="fas fa-pen"></i>
+                    </button>
+                  </form>
+
+                  <!-- Delete -->
+                  <a
+                    href="/users/carousel/delete/<%= p.id %>"
+                    class="icon-btn danger"
+                    data-tooltip="Delete"
+                    aria-label="Delete carousel image"
+                  >
+                    <i class="fas fa-trash"></i>
+                  </a>
+
+                </div>
+              </li>
+            <% }) %>
+          </ul>
+        <% } else { %>
+          <p class="muted no-photos">No photos yet — add your first one above.</p>
+        <% } %>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="/js/admin_dashboard.js"></script>
+</body>
+</html>

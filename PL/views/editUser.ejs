@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Alumix | Edit Employee</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
+
+  <!-- Page CSS -->
+  <link
+    rel="stylesheet"
+    href="/CSS/edit_user.css"
+  >
+</head>
+
+<body>
+
+  <main class="page">
+
+    <div class="card">
+
+      <!-- Header -->
+      <div class="header">
+
+        <div
+          class="icon"
+          aria-hidden="true"
+        >
+          <i class="fas fa-user-edit"></i>
+        </div>
+
+        <div>
+          <h1>Edit Employee</h1>
+
+          <p class="sub">
+            Update employee details and documents.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Error message -->
+      <% if (
+        typeof error !== "undefined" &&
+        error
+      ) { %>
+
+        <div
+          class="error"
+          role="alert"
+        >
+          <i
+            class="fas fa-exclamation-circle"
+            aria-hidden="true"
+          ></i>
+
+          <span><%= error %></span>
+        </div>
+
+      <% } %>
+
+      <!-- Current employee photo -->
+      <% if (employee.photo) { %>
+
+        <div class="current">
+
+          <div class="current-title">
+            <i
+              class="fas fa-image"
+              aria-hidden="true"
+            ></i>
+
+            <span>Current Photo</span>
+          </div>
+
+          <img
+            class="avatar"
+            src="<%= employee.photo %>"
+            alt="<%= employee.first_name || 'Employee' %> photo"
+          >
+
+        </div>
+
+      <% } %>
+
+      <!-- Edit employee form -->
+      <form
+        action="/users/edit/<%= employee.id %>"
+        method="POST"
+        enctype="multipart/form-data"
+        class="form"
+      >
+
+        <!-- English name -->
+        <div class="grid">
+
+          <div class="form-group">
+
+            <label for="first_name">
+              First Name (English)
+            </label>
+
+            <input
+              type="text"
+              id="first_name"
+              name="first_name"
+              value="<%= employee.first_name || '' %>"
+              placeholder="Enter first name"
+              required
+            >
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="last_name">
+              Last Name (English)
+            </label>
+
+            <input
+              type="text"
+              id="last_name"
+              name="last_name"
+              value="<%= employee.last_name || '' %>"
+              placeholder="Enter last name"
+              required
+            >
+
+          </div>
+
+        </div>
+
+        <!-- Arabic name -->
+        <div class="grid">
+
+          <div class="form-group">
+
+            <label for="first_name_ar">
+              First Name (Arabic)
+            </label>
+
+            <input
+              type="text"
+              id="first_name_ar"
+              name="first_name_ar"
+              class="arabic-input"
+              dir="rtl"
+              lang="ar"
+              value="<%= employee.first_name_ar || '' %>"
+              placeholder="أدخل الاسم الأول"
+              required
+            >
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="last_name_ar">
+              Last Name (Arabic)
+            </label>
+
+            <input
+              type="text"
+              id="last_name_ar"
+              name="last_name_ar"
+              class="arabic-input"
+              dir="rtl"
+              lang="ar"
+              value="<%= employee.last_name_ar || '' %>"
+              placeholder="أدخل اسم العائلة"
+              required
+            >
+
+          </div>
+
+        </div>
+
+        <!-- English and Arabic positions -->
+        <div class="grid">
+
+          <div class="form-group">
+
+            <label for="position">
+              Position (English)
+            </label>
+
+            <input
+              type="text"
+              id="position"
+              name="position"
+              value="<%= employee.position || '' %>"
+              placeholder="Enter position"
+              required
+            >
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="position_ar">
+              Position (Arabic)
+            </label>
+
+            <input
+              type="text"
+              id="position_ar"
+              name="position_ar"
+              class="arabic-input"
+              dir="rtl"
+              lang="ar"
+              value="<%= employee.position_ar || '' %>"
+              placeholder="أدخل المنصب"
+              required
+            >
+
+          </div>
+
+        </div>
+
+        <!-- Phone and email -->
+        <div class="grid">
+
+          <div class="form-group">
+
+            <label for="phone">
+              Phone
+            </label>
+
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value="<%= employee.phone || '' %>"
+              placeholder="Enter phone number"
+            >
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="email">
+              Email
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value="<%= employee.email || '' %>"
+              placeholder="Enter email"
+              required
+            >
+
+          </div>
+
+        </div>
+
+        <!-- LinkedIn -->
+        <div class="form-group">
+
+          <label for="linkedIn">
+            LinkedIn
+          </label>
+
+          <input
+            type="text"
+            id="linkedIn"
+            name="linkedIn"
+            value="<%= employee.linkedIn || '' %>"
+            placeholder="linkedin.com/in/username or full URL"
+          >
+
+        </div>
+
+        <!-- Category -->
+        <div class="form-group">
+
+          <label for="category">
+            Category
+          </label>
+
+          <select
+            id="category"
+            name="category"
+            required
+          >
+
+            <option
+              value="Management"
+              <%= employee.category === "Management" ? "selected" : "" %>
+            >
+              Management
+            </option>
+
+            <option
+              value="Operations"
+              <%= employee.category === "Operations" ? "selected" : "" %>
+            >
+              Operations
+            </option>
+
+            <option
+              value="Sales/Support"
+              <%= employee.category === "Sales/Support" ? "selected" : "" %>
+            >
+              Sales/Support
+            </option>
+
+          </select>
+
+        </div>
+
+        <!-- Files -->
+        <div class="grid">
+
+          <div class="form-group">
+
+            <label for="photo">
+              Employee Photo
+            </label>
+
+            <input
+              type="file"
+              id="photo"
+              name="photo"
+              accept="image/*"
+            >
+
+            <div class="hint">
+              <i
+                class="fas fa-info-circle"
+                aria-hidden="true"
+              ></i>
+
+              Leave empty to keep the current photo
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="resume">
+              Resume (PDF)
+            </label>
+
+            <input
+              type="file"
+              id="resume"
+              name="resume"
+              accept="application/pdf"
+            >
+
+            <div class="hint">
+              <i
+                class="fas fa-info-circle"
+                aria-hidden="true"
+              ></i>
+
+              Leave empty to keep the current resume
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Current resume -->
+        <% if (employee.resume_path) { %>
+
+          <div class="current link-box">
+
+            <a
+              class="resume-link"
+              href="<%= employee.resume_path %>"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i
+                class="fas fa-file-pdf"
+                aria-hidden="true"
+              ></i>
+
+              View Current Resume
+            </a>
+
+          </div>
+
+        <% } %>
+
+        <!-- Actions -->
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+          <i
+            class="fas fa-save"
+            aria-hidden="true"
+          ></i>
+
+          Save Changes
+        </button>
+
+        <a
+          href="/adminAlumix"
+          class="btn btn-outline"
+        >
+          <i
+            class="fas fa-arrow-left"
+            aria-hidden="true"
+          ></i>
+
+          Back to Dashboard
+        </a>
+
+      </form>
+
+    </div>
+
+  </main>
+
+  <script src="/js/edit_user.js?v=2"></script>
+
+</body>
+
+</html>

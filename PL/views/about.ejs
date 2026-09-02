@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alumix | About Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="/CSS/home_page.css">
+  <link rel="stylesheet" href="/CSS/about_page.css">
+</head>
+
+<body>
+  <%- include("components/nav_bar") %>
+
+  <section class="about-hero">
+    <div class="about-hero-bg">
+
+      <picture>
+        <source media="(max-width: 767px)"  srcset="/images/Image_844px.jpg">
+        <source media="(max-width: 1365px)" srcset="/images/Image_1024px.jpg">
+        <source media="(max-width: 1919px)" srcset="/images/Image_1600px.jpg">
+        <img class="about-hero-bg-img" src="/images/Image_1920px.jpg" alt="Alumix aluminum manufacturing" loading="eager">
+      </picture>
+
+      <!-- Overlay and content INSIDE bg div so they anchor to the image -->
+      <div class="about-hero-overlay"></div>
+
+      <div class="about-hero-content scroll-animate">
+        <h1>
+          <span data-en="About " data-ar="عن ">About </span><span class="highlight" data-en="Alumix" data-ar="Alumix">Alumix</span>
+        </h1>
+        <p class="subtitle">
+          <span data-en="A "
+                data-ar="منصة ">A </span><strong data-en="premium aluminum manufacturing platform" data-ar="متطورة لتصنيع الألمنيوم عالي الجودة">premium aluminum manufacturing platform</strong><span data-en=" built on precision, quality, and sustainable growth."
+                data-ar=" مبنية على الدقة والجودة والنمو المستدام.">
+             built on precision, quality, and sustainable growth.
+          </span>
+        </p>
+        <button id="langToggle" class="lang-btn" type="button" aria-label="Toggle language">
+          <i class="fas fa-globe"></i> العربية / English
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="container">
+
+      <!-- ARABIC (shown when site language = ar) -->
+      <div id="aboutAr" dir="rtl" lang="ar" style="display:none;">
+
+        <div class="mission-vision-grid scroll-animate">
+          <div class="mv-card" id="missionCardAr">
+            <div class="mv-header">
+              <div class="mv-header-content">
+                <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
+                <h2>مهمتنا</h2>
+              </div>
+              <i class="fas fa-chevron-down mv-toggle"></i>
+            </div>
+            <div class="mv-body">
+              <div class="mv-content">
+                <p>مهمتنا هي إنتاج مقاطع ألمنيوم عالية الجودة تلبي أعلى المعايير الدولية، مع التركيز على الابتكار المستمر والاستدامة البيئية. نسعى لتعزيز مكانة الصناعة اللبنانية على الصعيد الإقليمي والعالمي.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mv-card" id="visionCardAr">
+            <div class="mv-header">
+              <div class="mv-header-content">
+                <div class="mv-icon"><i class="fas fa-eye"></i></div>
+                <h2>رؤيتنا</h2>
+              </div>
+              <i class="fas fa-chevron-down mv-toggle"></i>
+            </div>
+            <div class="mv-body">
+              <div class="mv-content">
+                <p>أن نصبح الخيار الأول في صناعة الألمنيوم في المنطقة، معروفين بالجودة الاستثنائية، الابتكار التكنولوجي، والالتزام بخدمة العملاء. نطمح لبناء شراكات استراتيجية طويلة الأمد تساهم في نمو القطاع الصناعي.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Landscape company photo -->
+        <figure class="about-landscape scroll-animate">
+          <img
+            src="/images/About.jpg"
+            alt="منشأة Alumix لتصنيع الألمنيوم"
+            loading="lazy"
+          >
+          <figcaption>
+            <strong>فريق واحد، رؤية واحدة</strong>
+            <span>تنبع قوة Alumix من فريق متفانٍ يعمل بروح واحدة، تجمعه القيم المشتركة والخبرة والالتزام بالتميّز.</span>
+          </figcaption>
+        </figure>
+
+        <div class="about-content scroll-animate">
+          <div class="about-card">
+            <h2><i class="fas fa-industry"></i> نبذة تعريفية عن Alumix</h2>
+            <p>Alumix ليست مجرد منشأة صناعية، بل منصة إنتاجية متكاملة تعتمد على تكنولوجيا تصنيع متقدمة، ومقاربة هندسية دقيقة تهدف إلى تقديم مقاطع ألمنيوم بمعايير تضاهي كبرى المصانع الإقليمية.</p>
+            <h3 class="subhead">تقوم رؤية Alumix على ثلاث ركائز:</h3>
+            <ul class="about-list">
+              <li>بناء منتج يتفوّق في الجودة والاعتمادية،</li>
+              <li>تكوين هوية صناعية لبنانية قادرة على المنافسة خارج الحدود،</li>
+              <li>تطوير منظومة تشغيلية تُدار وفق مؤشرات أداء واضحة.</li>
+            </ul>
+            <p>من خلال هذه الرؤية، أصبحت Alumix جهة موثوقة لدى الشركات الهندسية، المصنّعين، الإستشاريين والموردين.</p>
+          </div>
+
+          <div class="about-card">
+            <h2><i class="fas fa-leaf"></i> لماذا الاستثمار في الألمنيوم؟</h2>
+            <p>الألمنيوم اليوم ليس مجرد مادة تصنيع… بل عنصر أساسي في الاقتصاد الصناعي العالمي.</p>
+            <p>يجمع الألمنيوم بين الخصائص التي تحتاجها الأسواق الحديثة: وزن خفيف، قوة ميكانيكية، مقاومة للتآكل، وقابلية إعادة تدوير كاملة.</p>
+            <p>هذا الاستثمار لم يكن قراراً لحظياً، بل رؤية استراتيجية مبنية على قراءة واضحة لاحتياجات السوق الإقليمي.</p>
+          </div>
+
+          <div class="about-card">
+            <h2><i class="fas fa-globe"></i> توسع Alumix نحو الأسواق الخارجية</h2>
+            <p>عام 2025 لم يكن مجرد عام تصدير… بل عام تثبيت موقع Alumix كلاعب يمتلك استراتيجية واضحة للتوسع الإقليمي.</p>
+            <h3 class="subhead">استند هذا التوسع إلى ثلاث ركائز:</h3>
+            <ul class="about-list">
+              <li>جودة منتج مستقرّة وقابلة للمنافسة،</li>
+              <li>قدرة تشغيلية تضمن التوريد المستمر في الوقت المحدد،</li>
+              <li>هوية تجارية جديدة عززت الثقة بالعلامة اللبنانية.</li>
+            </ul>
+          </div>
+
+          <div class="about-card">
+            <h2><i class="fas fa-award"></i> إنجازات Alumix لعام 2025</h2>
+            <p>عام 2025 شكّل نقطة تحوّل استراتيجية في مسار Alumix، حيث انتقلت الشركة من مرحلة التطوير الداخلي إلى توسيع حضورها المحلي والإقليمي.</p>
+            <p>أما على مستوى الأسواق، فقد استطاعت الشركة توسيع شبكة الزبائن إلى عشرات الزبائن المحليين والإقليميين.</p>
+            <p>ارتفعت الإنتاجية إلى أكثر من 30%، وهو مؤشر واضح على نجاح استراتيجية توجيه العملاء نحو المنتجات الأعلى مردودية.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENGLISH (shown when site language = en) -->
+      <div id="aboutEn" dir="ltr" lang="en">
+
+        <div class="mission-vision-grid scroll-animate">
+          <div class="mv-card" id="missionCardEn">
+            <div class="mv-header">
+              <div class="mv-header-content">
+                <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
+                <h2>Our Mission</h2>
+              </div>
+              <i class="fas fa-chevron-down mv-toggle"></i>
+            </div>
+            <div class="mv-body">
+              <div class="mv-content">
+                <p>Our mission is to produce high-quality aluminum profiles that meet the highest international standards, with a focus on continuous innovation and environmental sustainability. We strive to elevate the position of Lebanese industry on both regional and global scales.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mv-card" id="visionCardEn">
+            <div class="mv-header">
+              <div class="mv-header-content">
+                <div class="mv-icon"><i class="fas fa-eye"></i></div>
+                <h2>Our Vision</h2>
+              </div>
+              <i class="fas fa-chevron-down mv-toggle"></i>
+            </div>
+            <div class="mv-body">
+              <div class="mv-content">
+                <p>To become the first choice in the aluminum industry across the region, recognized for exceptional quality, technological innovation, and commitment to customer service. We aspire to build long-term strategic partnerships that contribute to the growth of the industrial sector.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Landscape company photo -->
+        <figure class="about-landscape scroll-animate">
+          <img
+            src="/images/About.jpg"
+            alt="Alumix aluminum manufacturing facility"
+            loading="lazy"
+          >
+          <figcaption>
+            <strong>One Team, One Vision</strong>
+            <span>The strength of Alumix comes from a dedicated team working together with shared values, skill, and commitment to excellence.</span>
+          </figcaption>
+        </figure>
+
+        <div class="about-content scroll-animate">
+          <div class="about-card">
+            <h2><i class="fas fa-industry"></i> About Alumix</h2>
+            <p>Alumix is not just an industrial facility, it is an integrated production platform powered by advanced manufacturing technology and precise engineering. The company delivers aluminum profiles that match the standards of leading regional factories.</p>
+            <h3 class="subhead">Alumix is built on three core pillars:</h3>
+            <ul class="about-list">
+              <li>Building a product that excels in quality and reliability,</li>
+              <li>Creating a Lebanese industrial identity capable of competing beyond borders,</li>
+              <li>Developing an operational system managed by clear performance indicators.</li>
+            </ul>
+            <p>With this vision, Alumix has become a trusted partner for engineering firms, manufacturers, consultants, and suppliers.</p>
+          </div>
+
+          <div class="about-card">
+            <h2><i class="fas fa-leaf"></i> Why Invest in Aluminum?</h2>
+            <p>Aluminum is no longer just a manufacturing material, it is a key element in the global industrial economy. Alumix chose to invest in this sector because aluminum is among the most in-demand metals in construction, energy, industrial applications, architectural systems, and automotive industries.</p>
+            <p>It combines the essentials modern markets need: lightweight for easier installation and transport, strong mechanical performance for structures, corrosion resistance for a long service life, and full recyclability that supports sustainability goals.</p>
+            <p>This investment is a strategic vision based on clear regional market needs, a sector with continuous growth potential and a true platform for innovation.</p>
+          </div>
+
+          <div class="about-card">
+            <h2><i class="fas fa-globe"></i> Alumix Expansion to External Markets</h2>
+            <p>2025 was not simply a year of exporting, it was the year Alumix secured its position as a player with a clear regional expansion strategy. The company entered Arab and international markets and built strong trade relationships with major manufacturers and traders.</p>
+            <h3 class="subhead">This expansion was driven by three foundations:</h3>
+            <ul class="about-list">
+              <li>Stable, competitive product quality,</li>
+              <li>Operational capability that ensures consistent on-time supply,</li>
+              <li>A renewed brand identity that strengthened trust in the Lebanese name.</li>
+            </ul>
+            <p>These steps expanded Alumix's reach and elevated its regional presence—proving that Lebanese industry can play a real role in the markets of the region.</p>
+          </div>
+
+          <div class="about-card">
+            <h2><i class="fas fa-award"></i> Alumix Achievements in 2025</h2>
+            <p>2025 was a strategic turning point for Alumix. The company moved from internal development to expanding its local and regional presence, achieving unprecedented results. Sales grew significantly compared to 2024 thanks to a precise expansion plan.</p>
+            <p>Alumix expanded its customer network to dozens of local and regional clients through an organized distribution system and well-planned marketing initiatives.</p>
+            <p>Productivity increased by more than 30%, and new equipment was introduced to enhance inspection, thickness control, and finishing. These results, combined with attracting over 60 new customers, placed Alumix in an advanced position within the regional aluminum sector.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <%- include("components/footer") %>
+
+  <script src="/JS/about_page.js"></script>
+</body>
+</html>

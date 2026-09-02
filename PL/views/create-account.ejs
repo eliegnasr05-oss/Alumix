@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Alumix | Create Account</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+            font-family: "Inter", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 30px 20px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f2027 0%,
+                    #203a43 50%,
+                    #2c5364 100%
+                );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(28, 146, 210, 0.1) 0%,
+                    transparent 70%
+                );
+            animation: rotate 30s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            box-shadow:
+                0 20px 60px
+                rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .account-side {
+            padding: 45px 40px;
+        }
+
+        .logo {
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #1c92d2 0%,
+                    #0b6fa4 100%
+                );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .account-header {
+            margin-bottom: 30px;
+        }
+
+        .account-header h2 {
+            margin-bottom: 8px;
+            color: #1a1a1a;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        .account-header p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .alert {
+            margin-bottom: 20px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            animation: shake 0.4s;
+        }
+
+        .alert-error {
+            background: #ffeeee;
+            color: #cc3333;
+            border-left: 4px solid #cc3333;
+        }
+
+        @keyframes shake {
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-8px);
+            }
+
+            75% {
+                transform: translateX(8px);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 21px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: #fafafa;
+            font-family: inherit;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .input-wrapper input {
+            padding-right: 70px;
+        }
+
+        .form-group input:focus {
+            border-color: #1c92d2;
+            outline: none;
+            background: #ffffff;
+            box-shadow:
+                0 0 0 3px
+                rgba(28, 146, 210, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 14px;
+            transform: translateY(-50%);
+            padding: 4px;
+            border: none;
+            background: transparent;
+            color: #1c92d2;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .toggle-password:hover {
+            color: #0b6fa4;
+        }
+
+        .password-hint {
+            display: block;
+            margin-top: 7px;
+            color: #888;
+            font-size: 12px;
+        }
+
+        .btn-create {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #1c92d2 0%,
+                    #0b6fa4 100%
+                );
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow:
+                0 4px 15px
+                rgba(28, 146, 210, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-create:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 6px 20px
+                rgba(28, 146, 210, 0.4);
+        }
+
+        .btn-create:active {
+            transform: translateY(0);
+        }
+
+        .login-link {
+            margin-top: 22px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #1c92d2;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .login-link a:hover {
+            color: #0b6fa4;
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 32px;
+            padding-top: 26px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                align-items: flex-start;
+                padding: 20px;
+            }
+
+            .container {
+                max-width: 480px;
+            }
+
+            .account-side {
+                padding: 40px 30px;
+            }
+
+            .logo {
+                font-size: 36px;
+            }
+
+            .account-header h2 {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 14px;
+            }
+
+            .account-side {
+                padding: 30px 20px;
+            }
+
+            .logo {
+                margin-bottom: 26px;
+                font-size: 32px;
+            }
+
+            .account-header h2 {
+                font-size: 24px;
+            }
+
+            .form-group input {
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+
+            .btn-create {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="account-side">
+            <div class="logo">ALUMIX</div>
+
+            <div class="account-header">
+                <h2>Create Account</h2>
+
+                <p>
+                    Enter your details and the authorized security
+                    code to create an administrator account.
+                </p>
+            </div>
+
+            <% if (typeof error !== "undefined" && error) { %>
+                <div class="alert alert-error">
+                    <%= error %>
+                </div>
+            <% } %>
+
+            <form
+                action="/users/create-account"
+                method="POST"
+            >
+                <div class="form-group">
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value="<%= formData && formData.email ? formData.email : '' %>"
+                        placeholder="you@company.com"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-wrapper">
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            data-target="password"
+                        >
+                            Show
+                        </button>
+                    </div>
+
+                    <span class="password-hint">
+                        Password must contain at least 8 characters.
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <div class="input-wrapper">
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Enter your password again"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            data-target="confirmPassword"
+                        >
+                            Show
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="securityCode">
+                        Account Security Code
+                    </label>
+
+                    <div class="input-wrapper">
+                        <input
+                            type="password"
+                            id="securityCode"
+                            name="securityCode"
+                            placeholder="Enter the authorized code"
+                            autocomplete="off"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            data-target="securityCode"
+                        >
+                            Show
+                        </button>
+                    </div>
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn-create"
+                >
+                    Create Account
+                </button>
+            </form>
+
+            <div class="login-link">
+                Already have an account?
+
+                <a href="/admin">
+                    Sign In
+                </a>
+            </div>
+
+            <div class="footer">
+                &copy;
+                <span id="year"></span>
+                Alumix. All rights reserved.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        const toggleButtons =
+            document.querySelectorAll(".toggle-password");
+
+        toggleButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const input =
+                    document.getElementById(
+                        button.dataset.target
+                    );
+
+                const isHidden =
+                    input.type === "password";
+
+                input.type =
+                    isHidden ? "text" : "password";
+
+                button.textContent =
+                    isHidden ? "Hide" : "Show";
+            });
+        });
+    </script>
+</body>
+</html>

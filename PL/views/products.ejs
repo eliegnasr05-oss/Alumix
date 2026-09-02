@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alumix | Premium Aluminum Products</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="/CSS/home_page.css">
+  <link rel="stylesheet" href="/CSS/product_page.css">
+</head>
+
+<body>
+
+  <%- include("components/nav_bar") %>
+
+  <!-- Language button -->
+  <button
+    type="button"
+    id="languageToggle"
+    class="language-toggle"
+    aria-label="Switch to Arabic"
+  >
+    <i class="fas fa-language" aria-hidden="true"></i>
+    <span>العربية</span>
+  </button>
+
+  <!-- Hero Section -->
+  <section class="products-hero">
+    <div class="products-hero-bg">
+
+      <picture>
+        <source media="(max-width: 767px)"  srcset="/images/Image_844px.jpg">
+        <source media="(max-width: 1365px)" srcset="/images/Image_1024px.jpg">
+        <source media="(max-width: 1919px)" srcset="/images/Image_1600px.jpg">
+        <img class="products-hero-img" src="/images/Image_1920px.jpg" alt="Alumix aluminum products" loading="eager">
+      </picture>
+
+      <div class="products-hero-overlay"></div>
+
+      <div class="products-hero-content">
+        <h1>
+          <span data-en="Our" data-ar="منتجاتنا">Our</span>
+          <span class="highlight">Products</span>
+        </h1>
+        <p
+          class="products-subtitle"
+          data-en="Experience excellence in aluminum engineering. Our comprehensive range of premium profiles and custom solutions are meticulously crafted to meet the highest industry standards and exceed your expectations."
+          data-ar="اختبروا التميّز في هندسة الألمنيوم. تُصنَّع مجموعتنا الشاملة من المقاطع الفاخرة والحلول المخصصة بعناية فائقة لتلبية أعلى معايير الصناعة وتفوق توقعاتكم."
+        >
+          Experience excellence in aluminum engineering. Our comprehensive range of
+          <strong>premium profiles and custom solutions</strong> are meticulously crafted
+          to meet the highest industry standards and exceed your expectations.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Products List -->
+  <div class="container">
+    <div class="products-list">
+      <% items.forEach((item, index) => { %>
+        <div class="product-card scroll-animate">
+          <div class="product-image">
+            <img src="<%= item.photo || '/images/placeholder.jpg' %>" alt="<%= item.title %>">
+          </div>
+          <div class="product-content">
+
+            <% if (item.label) { %>
+              <span class="product-label"><%= item.label %></span>
+            <% } %>
+
+            <h3
+              class="product-title"
+              data-en="<%= item.title %>"
+              data-ar="<%= item.title_ar || item.title %>"
+            >
+              <%= item.title %>
+            </h3>
+
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <%- include("components/footer") %>
+
+  <script src="/JS/product_page.js"></script>
+
+</body>
+</html>

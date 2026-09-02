@@ -1,0 +1,460 @@
+/* ===============================================================
+   HERO — fully independent classes, no conflict with home_page.css
+   =============================================================== */
+
+.products-hero {
+  width: 100%;
+  padding-top: 80px;    /* push below fixed nav */
+  position: relative;
+}
+
+/* bg div is the positioning context for overlay + content */
+.products-hero-bg {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.products-hero-bg picture {
+  display: block;
+  width: 100%;
+}
+
+/* Full image — no crop, same as home page */
+.products-hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: fill;
+}
+
+/* Overlay anchored to the image */
+.products-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(0,0,0,0.22) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Content anchored to the image */
+.products-hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(24px, 4vw, 60px) clamp(24px, 5vw, 80px);
+  pointer-events: none;
+}
+
+.products-hero-content > * {
+  pointer-events: auto;
+}
+
+/* Heading */
+.products-hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(26px, 3.5vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: clamp(12px, 1.2vw, 24px);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  max-width: 75%;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: phFadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+.products-hero h1 .highlight {
+  background: linear-gradient(135deg, #4dd0e1 0%, #26c6da 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtitle */
+.products-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(12px, 1.1vw, 18px);
+  color: #fff;
+  padding: clamp(8px, 0.8vw, 14px) clamp(12px, 1.2vw, 20px);
+  border-left: 4px solid #4dd0e1;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+  max-width: 65%;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  background: transparent;
+}
+
+.products-subtitle strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+@keyframes phFadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===============================================================
+   PAGE LAYOUT & CONTAINER
+   =============================================================== */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 70px 40px;
+}
+
+/* ===============================================================
+   PRODUCTS LIST — 3-COLUMN GRID BY DEFAULT
+   =============================================================== */
+.products-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per line */
+  gap: 30px;
+}
+
+/* ===============================================================
+   PRODUCT CARD (VERTICAL FLEX FOR GRID ACCURACY)
+   =============================================================== */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 18px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid rgba(77,208,225,0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s cubic-bezier(0.4,0,0.2,1);
+  height: 100%; /* Equal height cards */
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(77,208,225,0.4);
+  box-shadow: 0 20px 60px rgba(77,208,225,0.15);
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+}
+
+.scroll-animate.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===============================================================
+   PRODUCT IMAGE
+   =============================================================== */
+.product-image {
+  width: 100%;
+  height: 240px; /* Fixed height for consistent grid card height */
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2));
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Smooth vignette on product images */
+.product-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 45%,
+    rgba(0,0,0,0.28) 100%
+  );
+  opacity: 0.85;
+  transition: opacity 0.4s ease;
+}
+
+.product-card:hover .product-image img    { transform: scale(1.08); }
+.product-card:hover .product-image::after { opacity: 1; }
+
+/* ===============================================================
+   PRODUCT CONTENT (CENTERED ALIGNMENT)
+   =============================================================== */
+.product-content {
+  padding: 16px 8px 8px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* Center label & title horizontally */
+  text-align: center;     /* Center multi-line text */
+  gap: 12px;
+  flex-grow: 1;
+}
+
+/* Weight label badge */
+.product-label {
+  padding: 6px 16px;
+  color: #4dd0e1;
+  background: rgba(77, 208, 225, 0.1);
+  border: 1px solid rgba(77, 208, 225, 0.35);
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover .product-label {
+  color: #0a1a1f;
+  background: #4dd0e1;
+}
+
+.product-content h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(18px, 1.8vw, 24px);
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover .product-content h3 {
+  color: #4dd0e1;
+  transform: translateY(-2px);
+}
+
+/* ===============================================================
+   LANGUAGE BUTTON
+   =============================================================== */
+.language-toggle {
+  position: fixed;
+  top: 100px;
+  right: 25px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-width: 120px;
+  padding: 10px 18px;
+  color: #4dd0e1;
+  background: rgba(10, 26, 31, 0.95);
+  border: 1px solid rgba(77, 208, 225, 0.6);
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-toggle:hover {
+  color: #0a1a1f;
+  background: #4dd0e1;
+  border-color: #4dd0e1;
+  box-shadow: 0 10px 30px rgba(77, 208, 225, 0.3);
+  transform: translateY(-3px);
+}
+
+.language-toggle:focus-visible {
+  outline: 3px solid rgba(77, 208, 225, 0.35);
+  outline-offset: 4px;
+}
+
+.language-toggle i {
+  font-size: 18px;
+}
+
+/* ===============================================================
+   ARABIC MODE
+   =============================================================== */
+
+body.arabic-language .products-hero-content {
+  align-items: flex-end; /* Align hero text to the right side */
+  direction: rtl;
+}
+
+body.arabic-language .products-hero h1 .highlight {
+  display: none;
+}
+
+body.arabic-language .products-hero h1 {
+  font-family: "Noto Kufi Arabic", "Tahoma", "Arial", sans-serif;
+  text-align: right;
+  margin-left: auto;     /* Push title box to the right edge */
+  margin-right: 0;
+}
+
+body.arabic-language .products-subtitle {
+  font-family: "Cairo", "Tahoma", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.9;
+  letter-spacing: 0;
+  text-align: right;
+  border-left: none;
+  border-right: 4px solid #4dd0e1; /* Right border cyan accent */
+  margin-left: auto;              /* Push paragraph box to the right edge */
+  margin-right: 0;
+}
+
+body.arabic-language .container {
+  direction: rtl;
+}
+
+/* Card content remains centered in Arabic mode */
+body.arabic-language .product-content {
+  align-items: center;
+  text-align: center;
+}
+
+body.arabic-language .product-content h3 {
+  font-family: "Noto Kufi Arabic", "Tahoma", "Arial", sans-serif;
+  letter-spacing: 0;
+}
+
+body.arabic-language .product-card:hover .product-content h3 {
+  transform: translateY(-2px);
+}
+
+body.arabic-language .product-label {
+  font-family: "Inter", sans-serif;
+  direction: ltr;
+}
+
+/* Keep navbar and footer alignment unchanged */
+body.arabic-language header,
+body.arabic-language nav,
+body.arabic-language footer,
+body.arabic-language footer .container,
+body.arabic-language footer .row {
+  direction: ltr;
+}
+
+/* ===============================================================
+   RESPONSIVE BREAKPOINTS
+   =============================================================== */
+
+/* Medium-Large screens / Small Desktops */
+@media (max-width: 1200px) {
+  .container { max-width: 100%; padding: 65px 30px; }
+  .products-list { gap: 24px; }
+  .product-card { padding: 16px; }
+}
+
+/* Tablets (Landscape & Portrait): 2 cards per row */
+@media (max-width: 968px) {
+  .container { padding: 60px 25px; }
+
+  .products-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .product-image { height: 220px; }
+}
+
+/* Mobile Devices: 1 card per row */
+@media (max-width: 768px) {
+  .products-hero { padding-top: 70px; }
+
+  .products-hero-content {
+    justify-content: flex-end;
+    padding: 0 4% 5%;
+  }
+
+  .products-hero h1 {
+    font-size: clamp(15px, 4.2vw, 24px);
+    max-width: 100%;
+    margin-bottom: clamp(4px, 1vw, 7px);
+  }
+
+  .products-subtitle {
+    font-size: clamp(8px, 2vw, 11px);
+    max-width: 100%;
+    padding: 3px 8px;
+    border-left: 2px solid #4dd0e1;
+  }
+
+  body.arabic-language .products-subtitle {
+    border-right-width: 2px;
+  }
+
+  .container { padding: 55px 20px; }
+
+  .products-list {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .product-card {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .product-image { height: 240px; }
+
+  .language-toggle {
+    top: 75px;
+    right: 10px;
+    min-width: auto;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .language-toggle i {
+    font-size: 15px;
+  }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+  .products-hero { padding-top: 60px; }
+  .products-hero h1 { font-size: clamp(14px, 5vw, 20px); }
+  .products-subtitle { font-size: 9px; padding: 3px 7px; }
+
+  .container { padding: 40px 16px; }
+  .products-list { gap: 20px; }
+  .product-card { padding: 14px; }
+  .product-image { height: 200px; }
+}
+
+/* ===============================================================
+   REDUCED MOTION
+   =============================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .products-hero h1 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .product-card {
+    transition: none;
+  }
+}

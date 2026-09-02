@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Alumix | Our Team</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
+
+  <!-- Bootstrap -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+  >
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="/CSS/home_page.css">
+  <link rel="stylesheet" href="/CSS/team_page.css">
+  <link rel="stylesheet" href="/CSS/team_carousel.css">
+</head>
+
+<body>
+
+  <%- include("components/nav_bar") %>
+
+  <!-- Language button -->
+  <button
+    type="button"
+    id="languageToggle"
+    class="language-toggle"
+    aria-label="Switch to Arabic"
+  >
+    <i
+      class="fas fa-language"
+      aria-hidden="true"
+    ></i>
+
+    <span>العربية</span>
+  </button>
+
+  <main class="container">
+
+    <!-- Page title -->
+    <h2
+      class="scroll-animate"
+      data-en="Meet Our Team"
+      data-ar="تعرّف على فريقنا"
+    >
+      Meet Our Team
+    </h2>
+
+    <%
+      const categoryTranslations = {
+        Management: {
+          titleEn: "Management",
+          titleAr: "الإدارة",
+          descriptionEn:
+            "The visionary leaders who shape our strategy, drive our mission, and inspire excellence across every level of the organization.",
+          descriptionAr:
+            "القادة أصحاب الرؤية الذين يرسمون استراتيجيتنا، ويقودون رسالتنا، ويلهمون التميز في جميع مستويات المؤسسة."
+        },
+
+        Operations: {
+          titleEn: "Operations",
+          titleAr: "العمليات",
+          descriptionEn:
+            "Our technical experts who design and build precision aluminum solutions, pushing the boundaries of innovation and craftsmanship.",
+          descriptionAr:
+            "خبراؤنا الفنيون الذين يصممون وينفذون حلول الألمنيوم الدقيقة، ويدفعون حدود الابتكار والحرفية إلى الأمام."
+        },
+
+        "Sales/Support": {
+          titleEn: "Sales/Support",
+          titleAr: "المبيعات والدعم",
+          descriptionEn:
+            "Dedicated professionals committed to understanding your needs and delivering the right solutions to help your business grow.",
+          descriptionAr:
+            "فريق متخصص ملتزم بفهم احتياجاتكم وتقديم الحلول المناسبة لمساعدة أعمالكم على النمو."
+        }
+      };
+
+      function getCategoryTranslation(category) {
+        return categoryTranslations[category] || {
+          titleEn: category,
+          titleAr: category,
+          descriptionEn: "",
+          descriptionAr: ""
+        };
+      }
+    %>
+
+    <!-- Employee categories -->
+    <% categoryOrder.forEach(category => { %>
+
+      <% if (
+        grouped[category] &&
+        grouped[category].length > 0
+      ) { %>
+
+        <%
+          const translation =
+            getCategoryTranslation(category);
+        %>
+
+        <section class="team-category">
+
+          <h3
+            class="category-title scroll-animate"
+            data-en="<%= translation.titleEn %>"
+            data-ar="<%= translation.titleAr %>"
+          >
+            <%= translation.titleEn %>
+          </h3>
+
+          <p
+            class="category-description scroll-animate"
+            data-en="<%= translation.descriptionEn %>"
+            data-ar="<%= translation.descriptionAr %>"
+          >
+            <%= translation.descriptionEn %>
+          </p>
+
+          <div class="team-grid">
+
+            <% grouped[category].forEach(emp => { %>
+
+              <%
+                const englishName = [
+                  emp.first_name,
+                  emp.last_name
+                ]
+                  .filter(value => value)
+                  .map(value => String(value).trim())
+                  .filter(value => value.length > 0)
+                  .join(" ");
+
+                const arabicName = [
+                  emp.first_name_ar,
+                  emp.last_name_ar
+                ]
+                  .filter(value => value)
+                  .map(value => String(value).trim())
+                  .filter(value => value.length > 0)
+                  .join(" ");
+
+                const finalArabicName =
+                  arabicName || englishName;
+
+                const englishPosition =
+                  String(
+                    emp.position ||
+                    "Team Member"
+                  ).trim();
+
+                const arabicPosition =
+                  String(
+                    emp.position_ar ||
+                    emp.position ||
+                    "عضو الفريق"
+                  ).trim();
+
+                const cleanPhone =
+                  emp.phone
+                    ? String(emp.phone)
+                        .replace(/\D/g, "")
+                    : "";
+              %>
+
+              <article class="team-member scroll-animate">
+
+                <!-- Employee photo -->
+                <img
+                  src="<%= emp.photo || '/images/default-user.png' %>"
+                  alt="<%= englishName || 'Employee photo' %>"
+                  loading="lazy"
+                  onerror="this.onerror=null; this.src='/images/default-user.png';"
+                >
+
+                <!-- Employee name -->
+                <h4
+                  class="employee-name"
+                  data-en="<%= englishName %>"
+                  data-ar="<%= finalArabicName %>"
+                >
+                  <%= englishName %>
+                </h4>
+
+                <!-- Employee position -->
+                <span
+                  class="role-badge"
+                  data-en="<%= englishPosition %>"
+                  data-ar="<%= arabicPosition %>"
+                >
+                  <%= englishPosition %>
+                </span>
+
+                <!-- Contact information -->
+                <div class="contact-info">
+
+                  <% if (emp.email) { %>
+
+                    <a
+                      href="mailto:<%= emp.email %>"
+                      aria-label="Send email to <%= englishName %>"
+                      title="Email"
+                    >
+                      <i
+                        class="fas fa-envelope"
+                        aria-hidden="true"
+                      ></i>
+                    </a>
+
+                  <% } %>
+
+                  <% if (cleanPhone) { %>
+
+                    <a
+                      href="https://wa.me/<%= cleanPhone %>"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Contact <%= englishName %> on WhatsApp"
+                      title="WhatsApp"
+                    >
+                      <i
+                        class="fab fa-whatsapp"
+                        aria-hidden="true"
+                      ></i>
+                    </a>
+
+                  <% } %>
+
+                  <% if (emp.linkedIn) { %>
+
+                    <a
+                      href="<%= emp.linkedIn %>"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="<%= englishName %> LinkedIn profile"
+                      title="LinkedIn"
+                    >
+                      <i
+                        class="fab fa-linkedin"
+                        aria-hidden="true"
+                      ></i>
+                    </a>
+
+                  <% } %>
+
+                  <% if (emp.resume_path) { %>
+
+                    <a
+                      href="<%= emp.resume_path %>"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="View <%= englishName %> resume"
+                      title="Resume"
+                    >
+                      <i
+                        class="fas fa-file-pdf"
+                        aria-hidden="true"
+                      ></i>
+                    </a>
+
+                  <% } %>
+
+                </div>
+
+              </article>
+
+            <% }) %>
+
+          </div>
+
+        </section>
+
+      <% } %>
+
+    <% }) %>
+
+    <!-- Production Team Carousel -->
+    <% if (
+      carouselPhotos &&
+      carouselPhotos.length > 0
+    ) { %>
+
+      <section class="carousel-section">
+
+        <h3
+          class="carousel-section-title scroll-animate"
+          data-en="Production Team"
+          data-ar="فريق الإنتاج"
+        >
+          Production Team
+        </h3>
+
+        <p
+          class="carousel-section-sub scroll-animate"
+          data-en="A glimpse into the people behind the excellence of Alumix."
+          data-ar="لمحة عن الأشخاص الذين يقفون وراء تميّز ألومكس."
+        >
+          A glimpse into the people behind the excellence of Alumix.
+        </p>
+
+        <div class="c-viewport">
+
+          <div
+            class="c-track"
+            id="cTrack"
+          >
+
+            <%
+              const allPhotos = [
+                ...carouselPhotos,
+                ...carouselPhotos
+              ];
+            %>
+
+            <% allPhotos.forEach(photo => { %>
+
+              <div class="c-card">
+
+                <img
+                  src="<%= photo.photo_path %>"
+                  alt="<%= photo.caption || 'Team photo' %>"
+                  loading="lazy"
+                  draggable="false"
+                >
+
+                <% if (photo.caption) { %>
+
+                  <div class="c-caption">
+                    <%= photo.caption %>
+                  </div>
+
+                <% } %>
+
+              </div>
+
+            <% }) %>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    <% } %>
+
+  </main>
+
+  <%- include("components/footer") %>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Page JS -->
+  <script src="/js/team_page.js?v=4"></script>
+
+</body>
+
+</html>

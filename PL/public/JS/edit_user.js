@@ -1,0 +1,11 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+    if (!form) return;
+
+    form.addEventListener("submit", () => {
+        ["first_name","last_name","phone","email","linkedIn"].forEach((name) => {
+        const el = form.querySelector(`[name="${name}"]`);
+        if (el && typeof el.value === "string") el.value = el.value.trim();
+        });
+    });
+});

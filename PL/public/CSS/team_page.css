@@ -1,0 +1,1050 @@
+/* ============================================================
+   RESET
+============================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #0a1a1f;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+  font-feature-settings: "cv05", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================================
+   PAGE CONTAINER
+============================================================ */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px 50px;
+}
+
+/* ============================================================
+   MAIN TITLE
+============================================================ */
+
+.container h2 {
+  position: relative;
+
+  margin-bottom: 30px;
+
+  color: #ffffff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(30px, 4.5vw, 52px);
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  text-align: center;
+  text-transform: uppercase;
+
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.container h2::after {
+  content: "";
+
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+
+  width: 100px;
+  height: 4px;
+
+  background: #4dd0e1;
+  transform: translateX(-50%);
+}
+
+/* ============================================================
+   CATEGORY TITLE
+============================================================ */
+
+.category-title {
+  margin-top: 50px;
+
+  color: #4dd0e1;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-transform: uppercase;
+
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+/* ============================================================
+   CATEGORY DESCRIPTION
+============================================================ */
+
+.category-description {
+  position: relative;
+
+  max-width: 580px;
+  margin: 16px auto 0;
+  padding: 14px 24px;
+
+  color: #b0bec5;
+  background: rgba(77, 208, 225, 0.04);
+  border: 1px solid rgba(77, 208, 225, 0.12);
+  border-radius: 8px;
+
+  direction: ltr;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(13px, 1.4vw, 15px);
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  line-height: 1.8;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out 0.1s;
+}
+
+.category-description::before {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: auto;
+
+  width: 3px;
+  height: 60%;
+
+  background: #4dd0e1;
+  border-radius: 0 2px 2px 0;
+  transform: translateY(-50%);
+}
+
+/* ============================================================
+   TEAM GRID
+============================================================ */
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+/* ============================================================
+   TEAM MEMBER CARD
+============================================================ */
+
+.team-member {
+  position: relative;
+
+  display: flex;
+  flex: 0 0 calc((100% - 48px) / 3);
+  flex-direction: column;
+  align-items: center;
+
+  max-width: calc((100% - 48px) / 3);
+  padding: 80px 18px 22px;
+
+  overflow: hidden;
+  background: rgba(77, 208, 225, 0.03);
+  border: 2px solid rgba(77, 208, 225, 0.2);
+  border-radius: 18px;
+
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.45s ease;
+}
+
+.team-member:hover {
+  background: rgba(77, 208, 225, 0.08);
+  border-color: #4dd0e1;
+  box-shadow: 0 16px 50px rgba(77, 208, 225, 0.25);
+  transform: translateY(-8px);
+}
+
+.team-member::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(77, 208, 225, 0.12),
+    transparent
+  );
+  border-radius: 18px;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.team-member:hover::before {
+  opacity: 1;
+}
+
+/* ============================================================
+   TEAM MEMBER IMAGE
+============================================================ */
+
+.team-member img {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+
+  width: 120px;
+  height: 120px;
+
+  object-fit: cover;
+  border: 4px solid rgba(10, 26, 31, 0.95);
+  border-radius: 50%;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+
+  transform: translateX(-50%);
+  transition: all 0.4s ease;
+}
+
+.team-member:hover img {
+  border-color: #4dd0e1;
+  transform: translateX(-50%) scale(1.07);
+}
+
+/* ============================================================
+   TEAM MEMBER NAME
+============================================================ */
+
+.team-member h4 {
+  display: -webkit-box;
+
+  min-height: 50px;
+  margin-top: 70px;
+
+  overflow: hidden;
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  line-height: 1.25;
+  text-transform: uppercase;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+
+  transition: all 0.3s ease;
+}
+
+.team-member:hover h4 {
+  color: #4dd0e1;
+  transform: scale(1.03);
+}
+
+/* ============================================================
+   ROLE BADGE
+============================================================ */
+
+.role-badge {
+  margin-bottom: 14px;
+  padding: 7px 16px;
+
+  color: #4dd0e1;
+  background: rgba(77, 208, 225, 0.1);
+  border: 1px solid rgba(77, 208, 225, 0.35);
+  border-radius: 50px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+
+  transition: all 0.3s ease;
+}
+
+.team-member:hover .role-badge {
+  color: #0a1a1f;
+  background: #4dd0e1;
+}
+
+/* ============================================================
+   CONTACT INFORMATION
+============================================================ */
+
+.container .team-member .contact-info {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(4px, 2%, 12px);
+
+  width: 100%;
+  margin-top: auto;
+  padding: clamp(8px, 2.5%, 14px);
+
+  overflow: visible;
+
+  background: rgba(77, 208, 225, 0.06);
+  border: 1px solid rgba(77, 208, 225, 0.18);
+  border-radius: 12px;
+
+  transition: all 0.3s ease;
+}
+
+.team-member:hover .contact-info {
+  background: rgba(77, 208, 225, 0.12);
+  border-color: rgba(77, 208, 225, 0.35);
+}
+
+.container .team-member .contact-info a {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+
+  width: clamp(28px, 13%, 44px);
+  aspect-ratio: 1 / 1;
+
+  color: #4dd0e1;
+  background: rgba(77, 208, 225, 0.08);
+  border: 1px solid rgba(77, 208, 225, 0.25);
+  border-radius: 50%;
+
+  font-size: clamp(10px, 2vw, 16px);
+  line-height: 1;
+
+  cursor: pointer;
+  pointer-events: auto;
+
+  transition: all 0.3s ease;
+}
+
+.container .team-member .contact-info a:hover {
+  color: #0a1a1f;
+  background: #4dd0e1;
+  border-color: #4dd0e1;
+  box-shadow: 0 6px 16px rgba(77, 208, 225, 0.35);
+  transform: translateY(-3px);
+}
+
+.container .team-member .contact-info a i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: inherit;
+  pointer-events: none;
+}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+============================================================ */
+
+.scroll-animate.animate,
+.category-description.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   CAROUSEL SECTION
+============================================================ */
+
+.carousel-section {
+  margin-top: 70px;
+  padding-top: 60px;
+
+  border-top: 1px solid rgba(77, 208, 225, 0.15);
+}
+
+.carousel-section-title {
+  margin-bottom: 10px;
+
+  color: #4dd0e1;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-transform: uppercase;
+
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.carousel-section-sub {
+  position: relative;
+
+  max-width: 520px;
+  margin: 0 auto 44px;
+  padding: 14px 24px;
+
+  color: #b0bec5;
+  background: rgba(77, 208, 225, 0.04);
+  border: 1px solid rgba(77, 208, 225, 0.12);
+  border-radius: 8px;
+
+  direction: ltr;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(13px, 1.4vw, 15px);
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  line-height: 1.8;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out 0.1s;
+}
+
+.carousel-section-sub::before {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: auto;
+
+  width: 3px;
+  height: 60%;
+
+  background: #4dd0e1;
+  border-radius: 0 2px 2px 0;
+  transform: translateY(-50%);
+}
+
+.carousel-section-title.animate,
+.carousel-section-sub.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   CAROUSEL VIEWPORT
+============================================================ */
+
+.c-viewport {
+  position: relative;
+
+  width: 100%;
+  padding: 14px 0 24px;
+
+  overflow: hidden;
+}
+
+.c-viewport::before,
+.c-viewport::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+
+  width: 80px;
+
+  pointer-events: none;
+}
+
+.c-viewport::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    #0a1a1f 30%,
+    transparent
+  );
+}
+
+.c-viewport::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    #0a1a1f 30%,
+    transparent
+  );
+}
+
+/* ============================================================
+   CAROUSEL TRACK
+============================================================ */
+
+.c-track {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+
+  width: max-content;
+
+  cursor: grab;
+  animation: cScroll 45s linear infinite;
+  will-change: transform;
+}
+
+.c-track:hover,
+.c-track.is-dragging {
+  animation-play-state: paused;
+}
+
+.c-track.is-dragging {
+  cursor: grabbing;
+}
+
+@keyframes cScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ============================================================
+   CAROUSEL CARD
+============================================================ */
+
+.c-card {
+  position: relative;
+
+  flex: 0 0 220px;
+  width: 220px;
+  height: 320px;
+
+  overflow: hidden;
+
+  background: rgba(77, 208, 225, 0.03);
+  border: 2px solid rgba(77, 208, 225, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+
+  transition: all 0.45s ease;
+}
+
+.c-card:hover {
+  background: rgba(77, 208, 225, 0.08);
+  border-color: #4dd0e1;
+  box-shadow: 0 16px 50px rgba(77, 208, 225, 0.25);
+  transform: translateY(-8px);
+}
+
+.c-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    135deg,
+    rgba(77, 208, 225, 0.12),
+    transparent
+  );
+  border-radius: 16px;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.c-card:hover::before {
+  opacity: 1;
+}
+
+.c-card img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center top;
+  pointer-events: none;
+
+  transition: transform 0.5s ease;
+}
+
+.c-card:hover img {
+  transform: scale(1.06);
+}
+
+/* ============================================================
+   CAROUSEL CAPTION
+============================================================ */
+
+.c-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+
+  padding: 36px 14px 14px;
+
+  color: #4dd0e1;
+  background: linear-gradient(
+    to top,
+    rgba(10, 26, 31, 0.92),
+    transparent
+  );
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all 0.35s ease;
+}
+
+.c-card:hover .c-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   LANGUAGE BUTTON
+============================================================ */
+
+.language-toggle {
+  position: fixed;
+  top: 100px;
+  right: 25px;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-width: 120px;
+  padding: 10px 18px;
+
+  color: #4dd0e1;
+  background: rgba(10, 26, 31, 0.95);
+  border: 1px solid rgba(77, 208, 225, 0.6);
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-toggle:hover {
+  color: #0a1a1f;
+  background: #4dd0e1;
+  border-color: #4dd0e1;
+  box-shadow: 0 10px 30px rgba(77, 208, 225, 0.3);
+  transform: translateY(-3px);
+}
+
+.language-toggle:focus-visible {
+  outline: 3px solid rgba(77, 208, 225, 0.35);
+  outline-offset: 4px;
+}
+
+.language-toggle i {
+  font-size: 18px;
+}
+
+/* ============================================================
+   ARABIC MODE
+============================================================ */
+
+body.arabic-language .container {
+  direction: rtl;
+}
+
+/* Headline / label elements keep the geometric Kufi face, to echo
+   Space Grotesk's blocky, technical character */
+body.arabic-language .container h2,
+body.arabic-language .category-title,
+body.arabic-language .carousel-section-title,
+body.arabic-language .team-member h4,
+body.arabic-language .role-badge {
+  font-family:
+    "Noto Kufi Arabic",
+    "Tahoma",
+    "Arial",
+    sans-serif;
+}
+
+/* Paragraph / body copy uses Cairo instead — Kufi's geometric strokes
+   get fatiguing over full sentences, Cairo reads much more naturally */
+body.arabic-language .category-description,
+body.arabic-language .carousel-section-sub {
+  font-family:
+    "Cairo",
+    "Tahoma",
+    "Arial",
+    sans-serif;
+  font-weight: 400;
+  line-height: 1.9;
+}
+
+body.arabic-language .container h2,
+body.arabic-language .category-title,
+body.arabic-language .carousel-section-title {
+  direction: rtl;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+body.arabic-language .category-description,
+body.arabic-language .carousel-section-sub {
+  direction: rtl;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+/* Cyan line on the right in Arabic */
+body.arabic-language .category-description::before,
+body.arabic-language .carousel-section-sub::before {
+  left: auto !important;
+  right: 0 !important;
+  border-radius: 2px 0 0 2px !important;
+}
+
+body.arabic-language .team-grid,
+body.arabic-language .team-member {
+  direction: rtl;
+}
+
+body.arabic-language .team-member h4,
+body.arabic-language .role-badge {
+  letter-spacing: 0;
+  text-align: center;
+}
+
+body.arabic-language .contact-info,
+body.arabic-language .c-viewport,
+body.arabic-language .c-track,
+body.arabic-language .c-card {
+  direction: ltr;
+}
+
+/* Keep navbar and footer alignment unchanged */
+body.arabic-language header,
+body.arabic-language nav,
+body.arabic-language footer,
+body.arabic-language footer .container,
+body.arabic-language footer .row {
+  direction: ltr;
+}
+
+body.arabic-language footer h1,
+body.arabic-language footer h2,
+body.arabic-language footer h3,
+body.arabic-language footer h4,
+body.arabic-language footer h5,
+body.arabic-language footer h6,
+body.arabic-language footer p,
+body.arabic-language footer ul,
+body.arabic-language footer li,
+body.arabic-language footer a {
+  direction: ltr;
+}
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 900px) {
+  .team-member {
+    flex: 0 0 calc((100% - 24px) / 2);
+    max-width: calc((100% - 24px) / 2);
+  }
+
+  .contact-info a {
+    width: clamp(26px, 12%, 40px);
+    font-size: clamp(9px, 1.8vw, 14px);
+  }
+
+  .c-card {
+    flex-basis: 180px;
+    width: 180px;
+    height: 270px;
+    border-radius: 14px;
+  }
+
+  .c-viewport::before,
+  .c-viewport::after {
+    width: 60px;
+  }
+}
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 600px) {
+  .team-grid {
+    gap: 12px;
+  }
+
+  .team-member {
+    flex: 0 0 calc((100% - 12px) / 2);
+    max-width: calc((100% - 12px) / 2);
+    padding: 60px 10px 16px;
+  }
+
+  .team-member img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .contact-info a {
+    width: clamp(22px, 10%, 32px);
+    font-size: clamp(8px, 1.6vw, 13px);
+  }
+
+  .c-track {
+    gap: 14px;
+  }
+
+  .c-card {
+    flex-basis: 140px;
+    width: 140px;
+    height: 210px;
+    border-width: 1.5px;
+    border-radius: 12px;
+  }
+
+  .c-viewport::before,
+  .c-viewport::after {
+    width: 40px;
+  }
+
+  .c-caption {
+    padding: 26px 10px 10px;
+    font-size: 0.65rem;
+  }
+}
+
+/* ============================================================
+   SMALL MOBILE
+============================================================ */
+
+@media (max-width: 480px) {
+  .team-member {
+    padding: 50px 8px 14px;
+  }
+
+  .team-member img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .team-member h4 {
+    min-height: 40px;
+    margin-top: 55px;
+    font-size: 13px;
+  }
+
+  .role-badge {
+    margin-bottom: 8px;
+    padding: 4px 10px;
+    font-size: 9px;
+  }
+
+  .contact-info {
+    gap: 4px;
+    padding: 5px;
+  }
+
+  .contact-info a {
+    width: clamp(20px, 9%, 28px);
+    font-size: clamp(7px, 1.3vw, 10px);
+  }
+
+  .c-track {
+    gap: 12px;
+  }
+
+  .c-card {
+    flex-basis: 120px;
+    width: 120px;
+    height: 180px;
+    border-radius: 10px;
+  }
+
+  .c-caption {
+    padding: 22px 8px 8px;
+    font-size: 0.6rem;
+  }
+
+  .language-toggle {
+    top: 75px;
+    right: 10px;
+
+    min-width: auto;
+    padding: 8px 12px;
+
+    font-size: 12px;
+  }
+
+  .language-toggle i {
+    font-size: 15px;
+  }
+}
+
+/* ============================================================
+   EXTRA SMALL MOBILE
+============================================================ */
+
+@media (max-width: 360px) {
+  .container {
+    padding: 60px 8px 40px;
+  }
+
+  .team-grid {
+    gap: 10px;
+  }
+
+  .team-member {
+    flex: 0 0 calc((100% - 10px) / 2);
+    max-width: calc((100% - 10px) / 2);
+    padding: 45px 6px 12px;
+    border-radius: 12px;
+  }
+
+  .team-member img {
+    top: 10px;
+    width: 70px;
+    height: 70px;
+  }
+
+  .team-member h4 {
+    min-height: 34px;
+    margin-top: 45px;
+    font-size: 12px;
+  }
+
+  .role-badge {
+    padding: 3px 8px;
+    font-size: 8px;
+  }
+
+  .contact-info {
+    gap: 2px;
+    padding: 4px;
+    border-radius: 6px;
+  }
+
+  .contact-info a {
+    width: clamp(18px, 8%, 26px);
+    border-width: 0.5px;
+    font-size: clamp(6px, 1.1vw, 9px);
+  }
+
+  .c-track {
+    gap: 10px;
+  }
+
+  .c-card {
+    flex-basis: 100px;
+    width: 100px;
+    height: 150px;
+    border-width: 1px;
+    border-radius: 8px;
+  }
+
+  .c-caption {
+    display: none;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+============================================================ */
+
+/* ============================================================
+   MOBILE LANGUAGE BUTTON — prevent title overlap
+============================================================ */
+
+@media (max-width: 600px) {
+  .language-toggle {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    z-index: 10;
+
+    width: fit-content;
+    min-width: 0;
+    margin: 80px 14px 0 auto;
+    padding: 7px 11px;
+
+    font-size: 11px;
+    transform: none;
+  }
+
+  .language-toggle:hover {
+    transform: translateY(-2px);
+  }
+
+  .language-toggle i {
+    font-size: 14px;
+  }
+
+  main.container {
+    padding-top: 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .language-toggle {
+    margin-top: 70px;
+    margin-right: 10px;
+    padding: 6px 9px;
+    font-size: 10px;
+  }
+
+  main.container {
+    padding-top: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-animate,
+  .category-description,
+  .carousel-section-title,
+  .carousel-section-sub {
+    transition: none;
+  }
+
+  .c-track {
+    animation: none;
+  }
+}
